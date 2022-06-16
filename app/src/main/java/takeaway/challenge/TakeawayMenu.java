@@ -6,9 +6,9 @@ package takeaway.challenge;
 import java.util.ArrayList;
 
 public class TakeawayMenu {
-    ArrayList<Class> Menu = new ArrayList<>();
+    ArrayList<takeaway.challenge.MenuItem> Menu = new ArrayList<>();
 
-    public void AddToMenu(Class Dish) {
+    public void AddToMenu(takeaway.challenge.MenuItem Dish) {
         Menu.add(Dish);
     }
 

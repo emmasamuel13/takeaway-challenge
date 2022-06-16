@@ -5,6 +5,7 @@ package takeaway.challenge;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.util.ArrayList;
 
 public class TakeawayTest {
     @Test public void ReturnsNameAndPrice() {
@@ -17,8 +18,11 @@ public class TakeawayTest {
         TakeawayMenu Menu = new TakeawayMenu();
         MenuItem KormaDish = new MenuItem("Chicken korma", 5.99);
         MenuItem TikkaMasalaDish = new MenuItem("Prawn tikka masala", 5.89);
-        TakeawayMenu.AddToMenu(KormaDish);
-        TakeawayMenu.AddToMenu(TikkaMasalaDish);
-        assertEquals("returns the menu with two dishes", Double.valueOf(5.99), Menu.ViewMenu());
+        Menu.AddToMenu(KormaDish);
+        Menu.AddToMenu(TikkaMasalaDish);
+        ArrayList<takeaway.challenge.MenuItem> TestMenu = new ArrayList<>();
+        TestMenu.add(KormaDish);
+        TestMenu.add(TikkaMasalaDish);
+        assertEquals("returns the menu with two dishes", TestMenu, Menu.ViewMenu());
     }
 }
