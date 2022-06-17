@@ -25,4 +25,13 @@ public class TakeawayTest {
         TestMenu.add(TikkaMasalaDish);
         assertEquals("returns the menu with two dishes", TestMenu, Menu.ViewMenu());
     }
+
+    @Test public void AddsDishesToOrder() {
+        MenuItem KormaDish = new MenuItem("Chicken korma", 5.99);
+        CustomerOrder Order = new CustomerOrder();
+        Order.AddToOrder(KormaDish);
+        ArrayList<takeaway.challenge.MenuItem> TestOrder = new ArrayList<>();
+        TestOrder.add(KormaDish);
+        assertEquals("returns the order with one dish", TestOrder, Order.ViewOrder());
+    }
 }
