@@ -66,4 +66,19 @@ public class TakeawayTest {
         Order.AddToOrder(NinePapadams);
         assertFalse("Order doesn't equal £25.47", Order.CheckPrice(25.47));
     }
+
+    @Test public void PlacesAnOrder() {
+        MenuItem PrawnBhuna = new MenuItem("Prawn Bhuna", 6.99);
+        MenuItem MushroomRice = new MenuItem("Mushroom rice", 3.89);
+        MenuItem Chips = new MenuItem("Bag of chips", 3.29);
+        MenuItem KeemaNaan = new MenuItem("Keema Naan", 3.19);
+        MenuItem NinePapadams = new MenuItem("Nine papadams", 7.11);
+        CustomerOrder Order = new CustomerOrder();
+        Order.AddToOrder(PrawnBhuna);
+        Order.AddToOrder(MushroomRice);
+        Order.AddToOrder(Chips);
+        Order.AddToOrder(KeemaNaan);
+        Order.AddToOrder(NinePapadams);
+        assertEquals("Places order","Thank you! Your order was placed and will be delivered before 11:04", Order.PlaceOrder());
+    }
 }

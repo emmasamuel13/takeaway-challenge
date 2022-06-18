@@ -4,6 +4,8 @@
 package takeaway.challenge;
 
 import java.util.ArrayList;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class CustomerOrder {
     ArrayList<takeaway.challenge.MenuItem> Order = new ArrayList<>();
@@ -29,4 +31,13 @@ public class CustomerOrder {
         }
     }
 
+    public String PlaceOrder() {
+        LocalDateTime ToFormat = LocalDateTime.now().plusHours(1);
+        DateTimeFormatter Formatting = DateTimeFormatter.ofPattern("HH:mm");
+
+        String InAnHour = ToFormat.format(Formatting);
+
+        String Statement = String.format("Thank you! Your order was placed and will be delivered before %s", InAnHour);
+        return Statement;
+    }
 }
