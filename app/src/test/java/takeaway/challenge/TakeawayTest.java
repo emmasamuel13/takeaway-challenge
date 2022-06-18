@@ -5,6 +5,8 @@ package takeaway.challenge;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+
+import java.awt.*;
 import java.util.ArrayList;
 
 public class TakeawayTest {
@@ -33,5 +35,35 @@ public class TakeawayTest {
         ArrayList<takeaway.challenge.MenuItem> TestOrder = new ArrayList<>();
         TestOrder.add(KormaDish);
         assertEquals("returns the order with one dish", TestOrder, Order.ViewOrder());
+    }
+
+    @Test public void AddsToOrderAndChecksTotalIs24_47() {
+        MenuItem PrawnBhuna = new MenuItem("Prawn Bhuna", 6.99);
+        MenuItem MushroomRice = new MenuItem("Mushroom rice", 3.89);
+        MenuItem Chips = new MenuItem("Bag of chips", 3.29);
+        MenuItem KeemaNaan = new MenuItem("Keema Naan", 3.19);
+        MenuItem NinePapadams = new MenuItem("Nine papadams", 7.11);
+        CustomerOrder Order = new CustomerOrder();
+        Order.AddToOrder(PrawnBhuna);
+        Order.AddToOrder(MushroomRice);
+        Order.AddToOrder(Chips);
+        Order.AddToOrder(KeemaNaan);
+        Order.AddToOrder(NinePapadams);
+        assertTrue("Order equals £24.47", Order.CheckPrice(24.47));
+    }
+
+    @Test public void AddsToOrderAndChecksTotalIsNot25_47() {
+        MenuItem PrawnBhuna = new MenuItem("Prawn Bhuna", 6.99);
+        MenuItem MushroomRice = new MenuItem("Mushroom rice", 3.89);
+        MenuItem Chips = new MenuItem("Bag of chips", 3.29);
+        MenuItem KeemaNaan = new MenuItem("Keema Naan", 3.19);
+        MenuItem NinePapadams = new MenuItem("Nine papadams", 7.11);
+        CustomerOrder Order = new CustomerOrder();
+        Order.AddToOrder(PrawnBhuna);
+        Order.AddToOrder(MushroomRice);
+        Order.AddToOrder(Chips);
+        Order.AddToOrder(KeemaNaan);
+        Order.AddToOrder(NinePapadams);
+        assertFalse("Order doesn't equal £25.47", Order.CheckPrice(25.47));
     }
 }

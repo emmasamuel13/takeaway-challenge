@@ -16,4 +16,17 @@ public class CustomerOrder {
         return Order;
     }
 
+    public boolean CheckPrice(Double ExpectedPrice) {
+        Double ActualPrice = 0.00;
+        for (MenuItem Dish : Order) {
+            ActualPrice += Dish.GetDishPrice();
+        }
+        Double ActualPriceRounded = Math.round(ActualPrice * 100.0) / 100.0;
+        if (ActualPriceRounded.equals(ExpectedPrice)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
